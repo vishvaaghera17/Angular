@@ -1,0 +1,42 @@
+<app-user-header></app-user-header>
+
+<div class="dashboard-container">
+
+  <div class="welcome-banner">
+    <h2>Welcome Back, {{ userName }} </h2>
+    <p>What would you like to do today?</p>
+  </div>
+
+  <div class="dashboard">
+
+    <div class="card">
+      <div class="card-icon">🎬</div>
+      <h3>Now Showing</h3>
+      <p>Browse latest movies and book tickets</p>
+      <button routerLink="/">View Movies</button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎟</div>
+      <h3>My Bookings</h3>
+      <p>View and manage your bookings</p>
+      <button routerLink="/my-bookings">View Bookings</button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">👤</div>
+      <h3>My Profile</h3>
+      <p>Update your personal information</p>
+      <button routerLink="/profile">View Profile</button>
+    </div>
+
+    <div class="card logout-card">
+      <div class="card-icon">🚪</div>
+      <h3>Logout</h3>
+      <p>Sign out of your account</p>
+      <button (click)="logout()">Logout</button>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,72 @@
+<app-user-header></app-user-header>
+
+<div class="ticket-page">
+
+  <div class="ticket-wrapper">
+
+    <!-- Left Side -->
+    <div class="ticket-left">
+      <div class="ticket-logo">🎬 Movie Booking</div>
+      <h2 class="movie-title">{{ booking.movieName }}</h2>
+
+      <div class="ticket-info">
+        <div class="info-row">
+          <span class="label">🏛 Theater</span>
+          <span class="value">{{ booking.theaterName }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">📅 Date</span>
+          <span class="value">{{ booking.showDate }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">🕐 Time</span>
+          <span class="value">{{ booking.showTime }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">🎟 Seats</span>
+          <span class="value">{{ booking.seats }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">👤 Name</span>
+          <span class="value">{{ booking.userName }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">📧 Email</span>
+          <span class="value">{{ booking.userEmail }}</span>
+        </div>
+      </div>
+
+      <div class="ticket-total">
+        <span>Total Paid</span>
+        <span class="amount">₹{{ booking.totalPrice }}</span>
+      </div>
+
+      <div class="ticket-status">✅ BOOKING CONFIRMED</div>
+    </div>
+
+    <!-- Divider -->
+    <div class="ticket-divider">
+      <div class="circle top"></div>
+      <div class="dashed-line"></div>
+      <div class="circle bottom"></div>
+    </div>
+
+    <!-- Right Side (Stub) -->
+    <div class="ticket-right">
+      <div class="stub-label">ADMIT ONE</div>
+      <div class="barcode">
+        <div *ngFor="let b of barcodeBars" class="bar" [style.height]="b + 'px'"></div>
+      </div>
+      <div class="booking-id">#{{ bookingId }}</div>
+      <div class="stub-movie">{{ booking.movieName }}</div>
+    </div>
+
+  </div>
+
+  <!-- Buttons -->
+  <div class="ticket-actions">
+    <button class="btn-print" (click)="printTicket()">🖨 Print Ticket</button>
+    <button class="btn-home" (click)="goHome()">🏠 Back to Home</button>
+  </div>
+
+</div>

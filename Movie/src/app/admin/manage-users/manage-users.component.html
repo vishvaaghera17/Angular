@@ -1,0 +1,32 @@
+<app-admin-header></app-admin-header>
+
+<div class="users-container">
+  <h2>MANAGE USERS</h2>
+
+  <div class="table-card">
+    <div *ngIf="users.length === 0" class="no-data">No users registered yet.</div>
+
+    <table *ngIf="users.length > 0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>NAME</th>
+          <th>EMAIL</th>
+          <th>PHONE</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of users; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ u.name }}</td>
+          <td>{{ u.email }}</td>
+          <td>{{ u.phone || 'Not set' }}</td>
+          <td>
+            <button class="delete-btn" (click)="deleteUser(u._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

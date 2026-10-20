@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.bookings-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  font-family: 'Nunito', sans-serif;
+  color: white;
+}
+
+.bookings-container h2 {
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+  color: #FF4D73;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+}
+
+.bookings-container h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #FF4D73, transparent);
+  margin: 8px auto 30px;
+  border-radius: 2px;
+}
+
+.no-bookings { text-align: center; padding: 60px 20px; color: #aaa; }
+.no-bookings p { margin-bottom: 20px; font-size: 1rem; }
+
+.btn-browse {
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #FF4D73, #c0174f);
+  color: white; border: none; border-radius: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem; font-weight: 700; letter-spacing: 1.5px;
+  cursor: pointer; transition: 0.3s;
+}
+.btn-browse:hover { background: linear-gradient(135deg, #ff2d5c, #a01040); }
+
+.bookings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.booking-card {
+  background: linear-gradient(135deg, #0a2428, #0d2f34);
+  border: 1px solid #1e4a50;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.booking-card:hover {
+  border-color: #FF4D73;
+  box-shadow: 0 12px 32px rgba(255,77,115,0.15);
+  transform: translateY(-3px);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #FF4D73, #c0174f);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-header h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem; font-weight: 700;
+  letter-spacing: 1px; color: white;
+}
+.badge-confirmed {
+  background: rgba(255,255,255,0.2);
+  color: white; padding: 4px 10px;
+  border-radius: 20px; font-size: 0.72rem;
+  font-weight: 600; white-space: nowrap;
+}
+
+.card-body { padding: 20px; flex: 1; }
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 9px 0;
+  border-bottom: 1px solid #0d2f34;
+  font-size: 0.86rem;
+  gap: 12px;
+}
+.info-row:last-child { border-bottom: none; }
+
+.label { color: #888; white-space: nowrap; }
+.value { color: #e0e0e0; text-align: right; font-weight: 600; }
+
+.seats-value {
+  display: flex; flex-wrap: wrap;
+  gap: 6px; justify-content: flex-end;
+}
+.seat-chip {
+  background: rgba(255,77,115,0.15);
+  border: 1px solid rgba(255,77,115,0.4);
+  color: #FF4D73; padding: 2px 8px;
+  border-radius: 4px; font-size: 0.75rem; font-weight: 700;
+}
+
+.info-row.total .label { color: #FF4D73; font-weight: 700; font-size: 0.92rem; }
+.price { color: #FF4D73 !important; font-size: 1rem; font-weight: 700 !important; }
+
+/* ── Cancel Button ── */
+.card-footer {
+  padding: 16px 20px;
+  border-top: 1px solid #1e4a50;
+}
+
+.btn-cancel {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+  border-radius: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-cancel:hover:not(:disabled) {
+  background: rgba(255,107,107,0.12);
+  box-shadow: 0 0 12px rgba(255,107,107,0.2);
+}
+.btn-cancel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .bookings-grid { grid-template-columns: 1fr; }
+}

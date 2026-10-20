@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.users-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.users-container h2 {
+  font-family: 'Rajdhani', sans-serif;
+  color: #FF4D73;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.users-container h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #FF4D73, transparent);
+  margin: 8px auto 30px;
+  border-radius: 2px;
+}
+
+/* ── Table Wrapper ── */
+.table-card {
+  background: linear-gradient(135deg, #0a2428, #0d2f34);
+  border: 1px solid #1e4a50;
+  border-radius: 16px;
+  padding: 28px;
+  overflow-x: auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* ── Table ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+thead tr {
+  background: rgba(255,77,115,0.12);
+  border-bottom: 2px solid #FF4D73;
+}
+
+th {
+  color: #FF4D73;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 1.5px;
+  padding: 14px 16px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-bottom: 1px solid #1e4a50;
+  transition: background 0.2s;
+}
+
+tbody tr:hover { background: rgba(255,255,255,0.03); }
+tbody tr:last-child { border-bottom: none; }
+
+td {
+  color: #ccc;
+  padding: 13px 16px;
+  vertical-align: middle;
+}
+
+/* ── No users message ── */
+.no-data {
+  text-align: center;
+  color: #556;
+  padding: 40px;
+  font-size: 0.9rem;
+}
+
+/* ── Delete Button ── */
+.delete-btn {
+  padding: 6px 18px;
+  background: transparent;
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  transition: 0.25s;
+}
+
+.delete-btn:hover {
+  background: rgba(255, 107, 107, 0.15);
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
+}

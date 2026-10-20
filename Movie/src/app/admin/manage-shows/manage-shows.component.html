@@ -1,0 +1,147 @@
+<app-admin-header></app-admin-header>
+
+<div class="page-container">
+  <h2 class="page-title">MANAGE SHOWS</h2>
+
+  <!-- Add Show Form -->
+  <div class="form-card">
+    <div class="form-grid">
+
+      <!-- ✅ Movie triggers min date -->
+      <select [(ngModel)]="show.movieName" (ngModelChange)="onMovieChange()">
+        <option value="">Select Movie</option>
+        <option *ngFor="let m of movies" [value]="m.title">{{ m.title }}</option>
+      </select>
+
+      <!-- ✅ Theater triggers screen dropdown -->
+      <select [(ngModel)]="show.theaterName" (ngModelChange)="onTheaterChange()">
+        <option value="">Select Theater</option>
+        <option *ngFor="let t of theaters" [value]="t.name">{{ t.name }}</option>
+      </select>
+
+      <!-- ✅ Screen dropdown -->
+      <select [(ngModel)]="show.screenNumber" [disabled]="availableScreens.length === 0">
+        <option value="">{{ availableScreens.length === 0 ? 'Select Theater First' : 'Select Screen' }}</option>
+        <option *ngFor="let sc of availableScreens" [value]="sc">Screen {{ sc }}</option>
+      </select>
+
+      <!-- ✅ Date with min = movie release date -->
+      <input
+        type="date"
+        [(ngModel)]="show.showDate"
+        [min]="minShowDate"
+        [disabled]="!minShowDate"
+        [placeholder]="!minShowDate ? 'Select Movie First' : ''">
+
+      <select [(ngModel)]="show.showTime">
+        <option value="">Select Show Time</option>
+        <option>10:00 AM</option>
+        <option>1:00 PM</option>
+        <option>4:00 PM</option>
+        <option>7:00 PM</option>
+        <option>10:00 PM</option>
+      </select>
+
+      <input type="number" placeholder="Ticket Price (₹)" [(ngModel)]="show.ticketPrice" min="1">
+
+    </div>
+
+    <!-- ✅ Hint message -->
+    <p class="date-hint" *ngIf="minShowDate">
+      📅 Dates available from <strong>{{ minShowDate }}</strong> (movie release date)
+    </p>
+    <p class="date-hint disabled-hint" *ngIf="!minShowDate && show.movieName === ''">
+      ℹ Select a movie first to enable date selection
+    </p>
+
+    <button class="btn-add" (click)="addShow()">Add Show</button>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal-overlay" *ngIf="isEditing">
+    <div class="modal-card">
+      <h3>✏ Edit Show</h3>
+      <div class="form-grid">
+
+        <select [(ngModel)]="editShow.movieName" (ngModelChange)="onEditMovieChange()">
+          <option value="">Select Movie</option>
+          <option *ngFor="let m of movies" [value]="m.title">{{ m.title }}</option>
+        </select>
+
+        <select [(ngModel)]="editShow.theaterName" (ngModelChange)="onEditTheaterChange()">
+          <option value="">Select Theater</option>
+          <option *ngFor="let t of theaters" [value]="t.name">{{ t.name }}</option>
+        </select>
+
+        <select [(ngModel)]="editShow.screenNumber" [disabled]="editAvailableScreens.length === 0">
+          <option value="">{{ editAvailableScreens.length === 0 ? 'Select Theater First' : 'Select Screen' }}</option>
+          <option *ngFor="let sc of editAvailableScreens" [value]="sc">Screen {{ sc }}</option>
+        </select>
+
+        <!-- ✅ Edit date with min -->
+        <input
+          type="date"
+          [(ngModel)]="editShow.showDate"
+          [min]="editMinShowDate">
+
+        <select [(ngModel)]="editShow.showTime">
+          <option value="">Select Show Time</option>
+          <option>10:00 AM</option>
+          <option>1:00 PM</option>
+          <option>4:00 PM</option>
+          <option>7:00 PM</option>
+          <option>10:00 PM</option>
+        </select>
+
+        <input type="number" placeholder="Ticket Price (₹)" [(ngModel)]="editShow.ticketPrice" min="1">
+
+      </div>
+
+      <p class="date-hint" *ngIf="editMinShowDate">
+        📅 Dates available from <strong>{{ editMinShowDate }}</strong>
+      </p>
+
+      <div class="modal-actions">
+        <button class="btn-save" (click)="saveEdit()">✅ Save Changes</button>
+        <button class="btn-cancel" (click)="cancelEdit()">✖ Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shows Table -->
+  <div class="table-card">
+    <h3 class="table-title">SHOWS IN DATABASE</h3>
+
+    <div *ngIf="shows.length === 0" class="no-data">No shows scheduled yet.</div>
+
+    <table *ngIf="shows.length > 0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>MOVIE</th>
+          <th>THEATER</th>
+          <th>SCREEN</th>
+          <th>DATE</th>
+          <th>TIME</th>
+          <th>PRICE</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of shows; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ s.movieName }}</td>
+          <td>{{ s.theaterName }}</td>
+          <td>Screen {{ s.screenNumber }}</td>
+          <td>{{ s.showDate }}</td>
+          <td>{{ s.showTime }}</td>
+          <td>₹{{ s.ticketPrice }}</td>
+          <td class="action-btns">
+            <button class="btn-edit" (click)="openEdit(s)">Edit</button>
+            <button class="btn-delete" (click)="deleteShow(s._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

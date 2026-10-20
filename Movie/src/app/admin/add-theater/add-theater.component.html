@@ -1,0 +1,74 @@
+<app-admin-header></app-admin-header>
+
+<div class="page-container">
+  <h2 class="page-title">ADD THEATER</h2>
+
+  <!-- Add Form -->
+  <div class="form-card">
+    <div class="form-grid">
+      <input type="text" placeholder="Theater Name" [(ngModel)]="theater.name">
+      <input type="text" placeholder="City" [(ngModel)]="theater.city">
+      <input type="text" placeholder="Address" [(ngModel)]="theater.address" class="full-width">
+      <input type="number" placeholder="Total Seats" [(ngModel)]="theater.total_seats">
+      <input type="number" placeholder="Number of Screens" [(ngModel)]="theater.screens">
+      <input type="text" placeholder="Contact Number" [(ngModel)]="theater.contact_number" class="full-width">
+    </div>
+    <button class="btn-add" (click)="addTheater()">Add Theater</button>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal-overlay" *ngIf="isEditing">
+    <div class="modal-card">
+      <h3>✏ Edit Theater</h3>
+      <div class="form-grid">
+        <input type="text" placeholder="Theater Name" [(ngModel)]="editTheater.name">
+        <input type="text" placeholder="City" [(ngModel)]="editTheater.city">
+        <input type="text" placeholder="Address" [(ngModel)]="editTheater.address" class="full-width">
+        <input type="number" placeholder="Total Seats" [(ngModel)]="editTheater.total_seats">
+        <input type="number" placeholder="Number of Screens" [(ngModel)]="editTheater.screens">
+        <input type="text" placeholder="Contact Number" [(ngModel)]="editTheater.contact_number" class="full-width">
+      </div>
+      <div class="modal-actions">
+        <button class="btn-save" (click)="saveEdit()">✅ Save Changes</button>
+        <button class="btn-cancel" (click)="cancelEdit()">✖ Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-card">
+    <h3 class="table-title">THEATERS IN DATABASE</h3>
+
+    <div *ngIf="theaters.length === 0" class="no-data">No theaters found.</div>
+
+    <table *ngIf="theaters.length > 0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>NAME</th>
+          <th>CITY</th>
+          <th>ADDRESS</th>
+          <th>SEATS</th>
+          <th>SCREENS</th>
+          <th>CONTACT</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of theaters; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ t.name }}</td>
+          <td>{{ t.city }}</td>
+          <td>{{ t.address }}</td>
+          <td>{{ t.total_seats }}</td>
+          <td>{{ t.screens }}</td>
+          <td>{{ t.contact_number }}</td>
+          <td class="action-btns">
+            <button class="btn-edit" (click)="openEdit(t)">Edit</button>
+            <button class="btn-delete" (click)="deleteTheater(t._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+:root {
+    --primary-color: #FF4D73;
+    --dark-color: #00181B;
+}
+
+body {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+:root{
+    --pink:#FF4D73;
+    --dark:#00181B;
+  }
+  
+  body{
+    background: var(--dark);
+    color:white;
+    margin:0;
+    font-family:Arial;
+  }
+  
+  button{
+    background:var(--pink);
+    padding:10px 20px;
+    border:none;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+  }
+  
+  input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #333;
+    background:#002428;
+    color:white;
+  }
+  
+  .login-box{
+    width:350px;
+    margin:100px auto;
+    padding:20px;
+    background:#002026;
+    border-radius:10px;
+  }
+  
+  .carousel img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+  }
+  
+  .movie-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  
+  .movie-card{
+    width:180px;
+    background:#002026;
+    padding:10px;
+    border-radius:10px;
+    cursor:pointer;
+  }
+  
+  .movie-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+  }
+  
+  .seat{
+    width:30px;
+    height:30px;
+    background:#003036;
+    margin:5px;
+    text-align:center;
+    line-height:30px;
+    cursor:pointer;
+  }
+  
+  .seat.selected{
+    background:var(--pink);
+  }
+  
+  .seat.booked{
+    background:gray;
+    cursor:not-allowed;
+  }
+  

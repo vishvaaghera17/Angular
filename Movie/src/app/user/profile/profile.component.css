@@ -1,0 +1,217 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(135deg, #00181B, #0a2a2e);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+.page-container {
+  max-width: 520px;
+  margin: 50px auto 60px;
+  padding: 0 20px;
+}
+
+.page-title {
+  color: #FF4D73;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.page-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #FF4D73;
+  margin: 10px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(255,77,115,0.7);
+}
+
+/* ── Profile Card ── */
+.profile-card {
+  background: #00181B;
+  border: 1px solid #FF4D73;
+  border-radius: 16px;
+  padding: 36px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* ── Avatar ── */
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF4D73, #c0174f);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  box-shadow: 0 0 20px rgba(255,77,115,0.4);
+}
+
+/* ── View Mode ── */
+.profile-info {
+  border-top: 1px solid #1a3a3f;
+  border-bottom: 1px solid #1a3a3f;
+  padding: 12px 0;
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #1a3a3f;
+  color: white;
+}
+
+.info-row:last-child { border-bottom: none; }
+
+.label {
+  color: #aaa;
+  font-size: 0.88rem;
+}
+
+.value {
+  color: white;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.btn-edit {
+  width: 100%;
+  padding: 12px;
+  background: #FF4D73;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 20px;
+}
+
+.btn-edit:hover {
+  background: #ff2d5c;
+  box-shadow: 0 4px 12px rgba(255,77,115,0.4);
+}
+
+/* ── Edit Form ── */
+.edit-form {
+  color: white;
+}
+
+.edit-form h3 {
+  color: #FF4D73;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.edit-form label {
+  display: block;
+  color: #aaa;
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+  margin-top: 14px;
+}
+
+.optional {
+  color: #556;
+  font-size: 0.75rem;
+}
+
+.edit-form input {
+  width: 100%;
+  padding: 12px 14px;
+  background: #0d2a2f;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.edit-form input::placeholder { color: #556; }
+
+.edit-form input:focus {
+  outline: none;
+  border-color: #FF4D73;
+  box-shadow: 0 0 8px rgba(255,77,115,0.4);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+.btn-save, .btn-cancel {
+  flex: 1;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+}
+
+.btn-save {
+  background: #FF4D73;
+  color: white;
+}
+
+.btn-save:hover {
+  background: #ff2d5c;
+  box-shadow: 0 4px 12px rgba(255,77,115,0.4);
+}
+
+.btn-cancel {
+  background: transparent;
+  color: #FF4D73;
+  border: 1px solid #FF4D73;
+}
+
+.btn-cancel:hover {
+  background: rgba(255,77,115,0.1);
+}
+
+/* ── Stats ── */
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding-top: 16px;
+  border-top: 1px solid #1a3a3f;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-number {
+  color: #FF4D73;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.stat-label {
+  color: #aaa;
+  font-size: 0.78rem;
+}

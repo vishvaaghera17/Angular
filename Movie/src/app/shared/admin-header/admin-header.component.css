@@ -1,0 +1,72 @@
+/* Admin Header */
+
+.admin-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:#00181B;
+    color:white;
+    border-bottom:2px solid #FF4D73;
+    box-shadow:0 4px 15px rgba(0,0,0,0.5);
+}
+
+
+/* Logo */
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#FF4D73;
+    letter-spacing:1px;
+}
+
+
+/* Navigation */
+
+nav a{
+    color:white;
+    margin-left:25px;
+    text-decoration:none;
+    font-size:15px;
+    position:relative;
+    transition:0.3s;
+}
+
+
+/* Nav Hover Animation */
+
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#FF4D73;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#FF4D73;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+
+/* Logout Button */
+
+.logout{
+    background:#FF4D73;
+    padding:7px 14px;
+    border-radius:6px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.logout:hover{
+    background:#ff2d5c;
+    box-shadow:0 3px 10px rgba(255,77,115,0.5);
+}

@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #00181B;
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  background: #00181B;
+  border-bottom: 1px solid rgba(255,77,115,0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header h1 {
+  font-family: 'Rajdhani', sans-serif;
+  color: #FF4D73;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.header nav { display: flex; gap: 24px; align-items: center; }
+
+.header nav a {
+  font-family: 'Nunito', sans-serif;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.header nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%; height: 2px;
+  left: 0; bottom: -4px;
+  background: #FF4D73;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.header nav a:hover { color: #FF4D73; }
+.header nav a:hover::after { width: 100%; }
+
+/* ── Page Layout ── */
+.register-page {
+  min-height: calc(100vh - 57px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+/* ── Register Card ── */
+.register-container {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(135deg, #0a2428, #0d2f34);
+  border-radius: 16px;
+  border: 1px solid #1e4a50;
+  padding: 40px 36px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* ── Title ── */
+.register-container h2 {
+  font-family: 'Rajdhani', sans-serif;
+  color: #FF4D73;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+}
+
+.register-container h2::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #FF4D73, transparent);
+  margin: 8px auto 28px;
+  border-radius: 2px;
+}
+
+/* ── Inputs ── */
+.register-container input {
+  width: 100%;
+  padding: 13px 16px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid #1e4a50;
+  background: #00181B;
+  color: white;
+  font-size: 0.9rem;
+  font-family: 'Nunito', sans-serif;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.register-container input::placeholder { color: #456; }
+
+.register-container input:focus {
+  outline: none;
+  border-color: #FF4D73;
+  box-shadow: 0 0 0 3px rgba(255,77,115,0.15);
+}
+
+/* ── Button ── */
+.register-container button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 4px;
+  background: linear-gradient(135deg, #FF4D73, #c0174f);
+  border: none;
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 16px rgba(255,77,115,0.3);
+}
+
+.register-container button:hover {
+  background: linear-gradient(135deg, #ff2d5c, #a01040);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,77,115,0.5);
+}
+
+/* ── Login Link ── */
+.login-link {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.login-link a {
+  color: #FF4D73;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.login-link a:hover { text-decoration: underline; }

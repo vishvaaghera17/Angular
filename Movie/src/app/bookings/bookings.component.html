@@ -1,0 +1,115 @@
+<app-user-header></app-user-header>
+
+<div class="booking-container">
+
+  <!-- Movie Info -->
+  <div class="movie-info-box" *ngIf="movie">
+    <img [src]="'http://localhost:5000/uploads/' + movie.image" [alt]="movie.title">
+    <div class="movie-details">
+      <h3>{{ movie.title }}</h3>
+      <p>🎭 <span>{{ movie.genre }}</span></p>
+      <p>🌐 <span>{{ movie.language }}</span></p>
+      <p>⏱ <span>{{ movie.duration }}</span></p>
+      <p>📅 <span>{{ movie.releaseDate | date:'dd MMM yyyy' }}</span></p>
+    </div>
+  </div>
+
+  <!-- Step Indicator -->
+  <div class="step-bar">
+    <div class="step" [class.active]="step >= 1" [class.done]="step > 1">
+      <div class="step-circle">1</div><span>Theater</span>
+    </div>
+    <div class="step-line" [class.active]="step > 1"></div>
+    <div class="step" [class.active]="step >= 2" [class.done]="step > 2">
+      <div class="step-circle">2</div><span>Show</span>
+    </div>
+    <div class="step-line" [class.active]="step > 2"></div>
+    <div class="step" [class.active]="step >= 3">
+      <div class="step-circle">3</div><span>Seats</span>
+    </div>
+  </div>
+
+  <!-- STEP 1: Select Theater -->
+  <div class="section-box" *ngIf="step === 1">
+    <h3>🏛 SELECT THEATER</h3>
+    <div *ngIf="theaters.length === 0" class="no-data">No shows available for this movie.</div>
+    <div class="theater-list">
+      <div class="theater-card" *ngFor="let t of theaters" (click)="selectTheater(t)">
+        <div class="theater-icon">🎬</div>
+        <div class="theater-name">{{ t }}</div>
+        <div class="theater-sub">{{ allShows.length }} show(s) available</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Select Show by Screen -->
+  <div class="section-box" *ngIf="step === 2">
+    <h3>🎞 SHOWS AT {{ selectedTheater }}</h3>
+    <div *ngFor="let sc of theaterScreens" class="screen-group">
+      <div class="screen-label">🖥 Screen {{ sc.screen }}</div>
+      <div class="show-list">
+        <div class="show-card" *ngFor="let s of sc.shows" (click)="selectShow(s)">
+          <div class="show-date">📅 {{ s.showDate }}</div>
+          <div class="show-time">🕐 {{ s.showTime }}</div>
+          <div class="show-price">₹{{ s.ticketPrice }}</div>
+        </div>
+      </div>
+    </div>
+    <button class="btn-back" (click)="goBack()">← Back</button>
+  </div>
+
+  <!-- STEP 3: Select Seats -->
+  <div class="section-box" *ngIf="step === 3">
+    <h3>💺 SELECT SEATS</h3>
+
+    <div class="screen-display">🎥 SCREEN</div>
+
+    <div class="seat-legend">
+      <span class="legend available">Available</span>
+      <span class="legend selected">Selected</span>
+      <span class="legend booked">Booked</span>
+    </div>
+
+    <div class="seat-grid">
+      <div class="seat-row" *ngFor="let row of seatGrid">
+        <div
+          class="seat"
+          *ngFor="let seat of row"
+          [class.booked]="seat.booked"
+          [class.selected]="seat.selected"
+          [class.available]="!seat.booked && !seat.selected"
+          (click)="toggleSeat(seat)"
+          [title]="seat.id">
+          {{ seat.id }}
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-summary" *ngIf="selectedSeats.length > 0">
+      <div class="summary-row">
+        <span>Selected Seats:</span>
+        <span class="highlight">{{ selectedSeats.join(', ') }}</span>
+      </div>
+      <div class="summary-row">
+        <span>Seats Count:</span>
+        <span>{{ selectedSeats.length }}</span>
+      </div>
+      <div class="summary-row">
+        <span>Price per Seat:</span>
+        <span>₹{{ selectedShow?.ticketPrice }}</span>
+      </div>
+      <div class="summary-row total">
+        <span>Total Price:</span>
+        <span class="highlight">₹{{ totalPrice }}</span>
+      </div>
+    </div>
+
+    <div class="step3-actions">
+      <button class="btn-back" (click)="goBack()">← Back</button>
+      <button class="btn-confirm" (click)="confirmBooking()" [disabled]="selectedSeats.length === 0">
+        Confirm Booking →
+      </button>
+    </div>
+  </div>
+
+</div>

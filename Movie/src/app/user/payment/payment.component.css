@@ -1,0 +1,261 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(135deg, #00181B, #0a2a2e);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.payment-header {
+  background: #00181B;
+  border-bottom: 1px solid #FF4D73;
+  padding: 16px 40px;
+}
+
+.payment-header h1 {
+  color: #FF4D73;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+/* ── Wrapper ── */
+.payment-wrapper {
+  display: flex;
+  gap: 24px;
+  max-width: 900px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
+}
+
+/* ── Order Summary ── */
+.order-summary {
+  flex: 1;
+  background: #00181B;
+  border: 1px solid #1a3a3f;
+  border-radius: 12px;
+  padding: 24px;
+  color: white;
+  height: fit-content;
+}
+
+.order-summary h3 {
+  color: #FF4D73;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #1a3a3f;
+  font-size: 0.9rem;
+}
+
+.summary-row span:first-child {
+  color: #aaa;
+}
+
+.summary-row span:last-child {
+  color: white;
+  font-weight: 500;
+}
+
+.summary-row.total {
+  border-bottom: none;
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 2px solid #FF4D73;
+}
+
+.summary-row.total span {
+  color: #FF4D73 !important;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* ── Payment Form ── */
+.payment-form-box {
+  flex: 1.2;
+  background: #00181B;
+  border: 1px solid #FF4D73;
+  border-radius: 12px;
+  padding: 28px;
+  color: white;
+}
+
+.payment-form-box h3 {
+  color: #FF4D73;
+  font-size: 1.1rem;
+  margin-bottom: 22px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.payment-form-box label {
+  display: block;
+  color: #aaa;
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+  margin-top: 16px;
+  letter-spacing: 0.5px;
+}
+
+.payment-form-box input {
+  width: 100%;
+  padding: 12px 14px;
+  background: #0d2a2f;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.payment-form-box input::placeholder {
+  color: #556;
+}
+
+.payment-form-box input:focus {
+  outline: none;
+  border-color: #FF4D73;
+  box-shadow: 0 0 8px rgba(255, 77, 115, 0.4);
+}
+
+/* Card number with icon */
+.card-number-wrapper {
+  position: relative;
+}
+
+.card-number-wrapper input {
+  padding-right: 40px;
+  letter-spacing: 2px;
+}
+
+.card-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+}
+
+/* Expiry + CVV row */
+.card-row {
+  display: flex;
+  gap: 14px;
+}
+
+.card-field {
+  flex: 1;
+}
+
+/* ── Pay Button ── */
+.btn-pay {
+  width: 100%;
+  padding: 14px;
+  background: #FF4D73;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 24px;
+  letter-spacing: 0.5px;
+}
+
+.btn-pay:hover:not(:disabled) {
+  background: #ff2d5c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 77, 115, 0.5);
+}
+
+.btn-pay:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ── Success Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #00181B;
+  border: 1px solid #FF4D73;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.success-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.modal h2 {
+  color: #FF4D73;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.modal strong {
+  color: white;
+}
+
+.modal-details {
+  background: #0d2a2f;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  text-align: left;
+}
+
+.modal-details p {
+  color: #aaa;
+  font-size: 0.88rem;
+  margin-bottom: 8px;
+}
+
+.btn-home {
+  background: #FF4D73;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 8px;
+}
+
+.btn-home:hover {
+  background: #ff2d5c;
+  box-shadow: 0 4px 12px rgba(255, 77, 115, 0.4);
+}

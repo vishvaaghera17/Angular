@@ -1,0 +1,143 @@
+<app-admin-header></app-admin-header>
+
+<div class="page-container">
+  <h2 class="page-title">ADD MOVIE</h2>
+
+  <!-- Add Movie Form -->
+  <div class="form-card">
+    <div class="form-grid">
+      <input type="number" [(ngModel)]="movie.movieId" placeholder="Movie ID">
+      <input type="text" [(ngModel)]="movie.title" placeholder="Movie Title">
+      <input type="text" [(ngModel)]="movie.description" placeholder="Description">
+      <input type="text" [(ngModel)]="movie.duration" placeholder="Duration (e.g. 2h 15m)">
+
+      <select [(ngModel)]="movie.genre">
+        <option value="">Select Genre</option>
+        <option>Action</option>
+        <option>Drama</option>
+        <option>Comedy</option>
+        <option>Horror</option>
+        <option>Romance</option>
+        <option>Thriller</option>
+        <option>Sci-Fi</option>
+        <option>Animation</option>
+      </select>
+
+      <select [(ngModel)]="movie.language">
+        <option value="">Select Language</option>
+        <option>Hindi</option>
+        <option>English</option>
+        <option>Gujarati</option>
+        <option>Tamil</option>
+        <option>Telugu</option>
+      </select>
+
+      <input type="date" [(ngModel)]="movie.releaseDate">
+
+      <div class="file-upload">
+        <label>Choose Movie Image</label>
+        <input type="file" (change)="onFileSelect($event)" accept="image/*">
+      </div>
+
+      <select [(ngModel)]="movie.status">
+        <option value="">Select Status</option>
+        <option value="Now Showing">Now Showing</option>
+        <option value="Coming Soon">Coming Soon</option>
+      </select>
+    </div>
+
+    <button class="btn-add" (click)="addMovie()">Add Movie</button>
+  </div>
+
+  <!-- Edit Modal Overlay -->
+  <div class="modal-overlay" *ngIf="isEditing">
+    <div class="modal-card">
+      <h3>✏ Edit Movie</h3>
+
+      <div class="form-grid">
+        <input type="text" [(ngModel)]="editMovie.title" placeholder="Movie Title">
+        <input type="text" [(ngModel)]="editMovie.description" placeholder="Description">
+        <input type="text" [(ngModel)]="editMovie.duration" placeholder="Duration">
+
+        <select [(ngModel)]="editMovie.genre">
+          <option value="">Select Genre</option>
+          <option>Action</option>
+          <option>Drama</option>
+          <option>Comedy</option>
+          <option>Horror</option>
+          <option>Romance</option>
+          <option>Thriller</option>
+          <option>Sci-Fi</option>
+          <option>Animation</option>
+        </select>
+
+        <select [(ngModel)]="editMovie.language">
+          <option value="">Select Language</option>
+          <option>Hindi</option>
+          <option>English</option>
+          <option>Gujarati</option>
+          <option>Tamil</option>
+          <option>Telugu</option>
+        </select>
+
+        <input type="date" [(ngModel)]="editMovie.releaseDate">
+
+        <div class="file-upload">
+          <label>Update Image (optional)</label>
+          <input type="file" (change)="onEditFileSelect($event)" accept="image/*">
+        </div>
+
+        <select [(ngModel)]="editMovie.status">
+          <option value="">Select Status</option>
+          <option value="Now Showing">Now Showing</option>
+          <option value="Coming Soon">Coming Soon</option>
+        </select>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-save" (click)="saveEdit()">✅ Save Changes</button>
+        <button class="btn-cancel" (click)="cancelEdit()">✖ Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movies Table -->
+  <div class="table-card">
+    <h3 class="table-title">MOVIES IN DATABASE</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>MOVIE ID</th>
+          <th>TITLE</th>
+          <th>GENRE</th>
+          <th>LANGUAGE</th>
+          <th>DURATION</th>
+          <th>RELEASE DATE</th>
+          <th>STATUS</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of movies">
+          <td>{{ m.movieId }}</td>
+          <td>{{ m.title }}</td>
+          <td>{{ m.genre }}</td>
+          <td>{{ m.language }}</td>
+          <td>{{ m.duration }}</td>
+          <td>{{ m.releaseDate | date:'dd/MM/yyyy' }}</td>
+          <td>
+            <span class="status-badge" [class.now-showing]="m.status === 'Now Showing'"
+                  [class.coming-soon]="m.status === 'Coming Soon'">
+              {{ m.status }}
+            </span>
+          </td>
+          <td class="action-btns">
+            <button class="btn-edit" (click)="openEdit(m)">Edit</button>
+            <button class="btn-delete" (click)="deleteMovie(m._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

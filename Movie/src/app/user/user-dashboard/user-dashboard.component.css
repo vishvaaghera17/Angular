@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #00181B;
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── Container ── */
+.dashboard-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 24px 80px;
+}
+
+/* ── Welcome Banner ── */
+.welcome-banner {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.welcome-banner h2 {
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.welcome-banner h2 span {
+  color: #FF4D73;
+}
+
+.welcome-banner p {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+.welcome-banner::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #FF4D73, transparent);
+  margin: 14px auto 0;
+  border-radius: 2px;
+}
+
+/* ── Grid ── */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 24px;
+}
+
+/* ── Card ── */
+.card {
+  background: linear-gradient(135deg, #0a2428, #0d2f34);
+  border: 1px solid #1e4a50;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.card:hover {
+  border-color: #FF4D73;
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(255,77,115,0.2);
+}
+
+.card-icon {
+  font-size: 2.4rem;
+  margin-bottom: 4px;
+}
+
+.card h3 {
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.card p {
+  color: #aaa;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.card button {
+  margin-top: 8px;
+  width: 100%;
+  padding: 11px 20px;
+  background: linear-gradient(135deg, #FF4D73, #c0174f);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(255,77,115,0.3);
+}
+
+.card button:hover {
+  background: linear-gradient(135deg, #ff2d5c, #a01040);
+  box-shadow: 0 6px 20px rgba(255,77,115,0.5);
+  transform: translateY(-1px);
+}
+
+/* ── Logout Card ── */
+.logout-card { border-color: #1e4a50; }
+
+.logout-card button {
+  background: transparent;
+  color: #FF4D73;
+  border: 1px solid #FF4D73;
+  box-shadow: none;
+}
+
+.logout-card button:hover {
+  background: #FF4D73;
+  color: white;
+  box-shadow: 0 4px 16px rgba(255,77,115,0.4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .dashboard { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .dashboard { grid-template-columns: 1fr; }
+  .dashboard-container { padding: 32px 16px 60px; }
+}

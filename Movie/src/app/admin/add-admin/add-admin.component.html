@@ -1,0 +1,54 @@
+<app-admin-header></app-admin-header>
+
+<div class="admin-container">
+  <h2>ADD ADMIN</h2>
+
+  <div class="form-wrapper">
+    <div class="form-card">
+      <input type="text"     placeholder="Admin Name"  [(ngModel)]="admin.username">
+      <input type="email"    placeholder="Admin Email" [(ngModel)]="admin.email">
+      <input type="password" placeholder="Password"    [(ngModel)]="admin.password">
+      <button (click)="addAdmin()">Add Admin</button>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal-overlay" *ngIf="isEditing">
+    <div class="modal-card">
+      <h3>✏ Edit Admin</h3>
+      <input type="text"     placeholder="Admin Name"                              [(ngModel)]="editAdmin.username">
+      <input type="email"    placeholder="Admin Email"                             [(ngModel)]="editAdmin.email">
+      <input type="password" placeholder="New Password (leave blank to keep current)" [(ngModel)]="editAdmin.password">
+      <div class="modal-actions">
+        <button class="btn-save"   (click)="saveEdit()">✅ Save Changes</button>
+        <button class="btn-cancel" (click)="cancelEdit()">✖ Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <h3 class="table-title">ADMINS IN DATABASE</h3>
+    <div *ngIf="admins.length === 0" class="no-data">No admins found.</div>
+    <table *ngIf="admins.length > 0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>NAME</th>
+          <th>EMAIL</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of admins; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ a.username }}</td>       <!-- ✅ was a.username -->
+          <td>{{ a.email }}</td>
+          <td class="action-btns">
+            <button class="btn-edit"   (click)="openEdit(a)">Edit</button>
+            <button class="delete-btn" (click)="deleteAdmin(a._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

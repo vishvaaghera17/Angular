@@ -1,0 +1,42 @@
+<app-admin-header></app-admin-header>
+
+<div class="booking-container">
+  <h2>MANAGE BOOKINGS</h2>
+
+  <div class="table-card">
+    <div *ngIf="bookings.length === 0" class="no-data">No bookings found.</div>
+
+    <table *ngIf="bookings.length > 0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>USER NAME</th>
+          <th>EMAIL</th>
+          <th>MOVIE</th>
+          <th>THEATER</th>
+          <th>DATE</th>
+          <th>TIME</th>
+          <th>SEATS</th>
+          <th>TOTAL</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let b of bookings; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ b.userName }}</td>
+          <td>{{ b.userEmail }}</td>
+          <td>{{ b.movieName }}</td>
+          <td>{{ b.theaterName }}</td>
+          <td>{{ b.showDate }}</td>
+          <td>{{ b.showTime }}</td>
+          <td>{{ b.seats }}</td>
+          <td>₹{{ b.totalPrice }}</td>
+          <td class="action-btns">
+            <button class="delete-btn" (click)="deleteBooking(b._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

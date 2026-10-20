@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "69adb7f6b12d0342ddea5168"
+  },
+  "name": "PVR",
+  "address": "Suarat",
+  "city": "Surat",
+  "total_seats": 150,
+  "contact_number": "9874563212",
+  "__v": 0,
+  "screens": 3
+},
+{
+  "_id": {
+    "$oid": "69adb846b12d0342ddea5171"
+  },
+  "name": "Rajhansh",
+  "address": "Italva",
+  "city": "NVS",
+  "total_seats": 200,
+  "contact_number": "987456321",
+  "__v": 0,
+  "screens": 3
+},
+{
+  "_id": {
+    "$oid": "69b42b286e4ebd26bdd342ae"
+  },
+  "name": "Royal",
+  "address": "Station Road",
+  "city": "Navsari",
+  "total_seats": 150,
+  "screens": 3,
+  "contact_number": "9874563212",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b55cdf50cbe00018801e95"
+  },
+  "name": "Mukta",
+  "address": "Railway Station Road Sayaji Road Navsari, Navsari",
+  "city": "Navsari",
+  "total_seats": 150,
+  "screens": 3,
+  "contact_number": "9874563212",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b620da50cbe00018801ed4"
+  },
+  "name": "Laxmi Cine Magic",
+  "address": "Karvad Road Dasturwad, Navsari",
+  "city": "Navsari",
+  "total_seats": 100,
+  "screens": 3,
+  "contact_number": "9865321478",
+  "__v": 0
+}]

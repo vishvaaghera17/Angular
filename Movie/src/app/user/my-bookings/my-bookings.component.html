@@ -1,0 +1,61 @@
+<app-user-header></app-user-header>
+
+<div class="bookings-container">
+
+  <h2>MY BOOKINGS</h2>
+
+  <div *ngIf="bookings.length === 0" class="no-bookings">
+    <p>No bookings found.</p>
+    <button class="btn-browse" routerLink="/">Browse Movies</button>
+  </div>
+
+  <div class="bookings-grid" *ngIf="bookings.length > 0">
+    <div class="booking-card" *ngFor="let b of bookings">
+
+      <div class="card-header">
+        <h3>{{ b.movieName }}</h3>
+        <span class="badge-confirmed">✅ Confirmed</span>
+      </div>
+
+      <div class="card-body">
+        <div class="info-row">
+          <span class="label">🏛 Theater</span>
+          <span class="value">{{ b.theaterName }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">📅 Date</span>
+          <span class="value">{{ b.showDate || '—' }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">🕐 Show Time</span>
+          <span class="value">{{ b.showTime }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">💺 Seats</span>
+          <span class="value seats-value">
+            <span class="seat-chip" *ngFor="let s of getSeatList(b.seats)">{{ s }}</span>
+          </span>
+        </div>
+        <div class="info-row">
+          <span class="label">🎟 No. of Seats</span>
+          <span class="value">{{ getSeatList(b.seats).length }}</span>
+        </div>
+        <div class="info-row total">
+          <span class="label"> Total Paid</span>
+          <span class="value price">₹{{ b.totalPrice }}</span>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button
+          class="btn-cancel"
+          (click)="cancelBooking(b._id)"
+          [disabled]="cancellingId === b._id">
+          {{ cancellingId === b._id ? 'Cancelling...' : '✖ Cancel Booking' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</div>

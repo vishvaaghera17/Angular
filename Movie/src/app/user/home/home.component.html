@@ -1,0 +1,76 @@
+<!-- Guest Header -->
+<header class="header" *ngIf="!isLoggedIn">
+  <h1>🎬 Movie Ticket Booking</h1>
+  <nav>
+    <a routerLink="/">Home</a>
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
+  </nav>
+</header>
+
+<!-- User Header -->
+<header class="header" *ngIf="isLoggedIn">
+  <h1>🎬 Movie Booking</h1>
+  <nav>
+    <a routerLink="/user/user-dashboard">Dashboard</a>
+    <a routerLink="/my-bookings">My Bookings</a>
+    <a routerLink="/profile">My Profile</a>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </nav>
+</header>
+
+<!-- ── Carousel ── -->
+<div class="carousel" *ngIf="carouselMovies.length > 0">
+
+  <!-- Slides -->
+  <div class="carousel-track">
+    <div
+      class="carousel-slide"
+      *ngFor="let m of carouselMovies; let i = index"
+      [class.active]="i === currentSlide">
+      <img [src]="'http://localhost:5000/uploads/' + m.image" [alt]="m.title">
+      <div class="carousel-overlay">
+        <div class="carousel-info">
+          <span class="carousel-badge">{{ m.genre }}</span>
+          <h2>{{ m.title }}</h2>
+          <p>{{ m.description }}</p>
+          <div class="carousel-meta">
+            <span>🌐 {{ m.language }}</span>
+            <span>⏱ {{ m.duration }}</span>
+          </div>
+          <button class="btn-carousel-book" (click)="bookNow(m)">🎟 Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prev / Next -->
+  <button class="carousel-btn prev" (click)="prevSlide()">&#8249;</button>
+  <button class="carousel-btn next" (click)="nextSlide()">&#8250;</button>
+
+  <!-- Dots -->
+  <div class="carousel-dots">
+    <span
+      class="dot"
+      *ngFor="let m of carouselMovies; let i = index"
+      [class.active]="i === currentSlide"
+      (click)="goToSlide(i)">
+    </span>
+  </div>
+
+</div>
+
+<!-- ── Now Showing ── -->
+<h2 class="section-title">Now Showing</h2>
+
+<div class="movie-container">
+  <div class="movie-card" *ngFor="let m of movies">
+    <img [src]="'http://localhost:5000/uploads/' + m.image" [alt]="m.title">
+    <div class="movie-info">
+      <h3>{{ m.title }}</h3>
+      <p class="movie-genre">{{ m.genre }} • {{ m.language }}</p>
+      <p class="movie-duration">⏱ {{ m.duration }}</p>
+      <button class="btn-book" (click)="bookNow(m)">Book Now</button>
+    </div>
+  </div>
+</div>

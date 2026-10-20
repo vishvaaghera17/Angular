@@ -1,0 +1,10 @@
+<header class="user-header">
+    <div class="header-logo">🎬 Movie Booking</div>
+    <nav>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+      <a routerLink="/user/user-dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/my-bookings" routerLinkActive="active">My Bookings</a>
+      <a routerLink="/profile" routerLinkActive="active">My Profile</a>
+      <a class="logout-btn" (click)="logout()">Logout</a>
+    </nav>
+  </header>

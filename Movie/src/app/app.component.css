@@ -1,0 +1,71 @@
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #001f21;
+  }
+  
+  /* HEADER */
+  
+  .header{
+    background:#022c2e;
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  
+  .header nav a{
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+    font-weight:bold;
+  }
+  
+  .header nav a:hover{
+    color:#ffcc00;
+  }
+  
+  /* SECTION */
+  
+  .section-title{
+    margin:30px;
+    color:white;
+  }
+  
+  /* MOVIE GRID */
+  
+  .movie-container{
+    display:flex;
+    gap:30px;
+    padding:20px;
+  }
+  
+  /* CARD */
+  
+  .movie-card{
+    background:#01373a;
+    padding:15px;
+    border-radius:10px;
+    width:200px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  
+  .movie-card:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 15px rgba(255,255,255,0.3);
+  }
+  
+  .movie-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:8px;
+  }
+  
+  .movie-card h3{
+    color:white;
+    margin-top:10px;
+  }

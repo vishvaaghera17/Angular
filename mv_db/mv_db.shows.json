@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "69b445816e4ebd26bdd342d5"
+  },
+  "movieName": "Mahavtar",
+  "theaterName": "Royal",
+  "showDate": "2026-03-22",
+  "showTime": "10:00 AM",
+  "__v": 0,
+  "screenNumber": 1,
+  "ticketPrice": 250
+},
+{
+  "_id": {
+    "$oid": "69b55d1a50cbe00018801e9c"
+  },
+  "movieName": "King",
+  "theaterName": "PVR",
+  "screenNumber": 1,
+  "showDate": "2026-03-19",
+  "showTime": "10:00 PM",
+  "ticketPrice": 300,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b55d6650cbe00018801ea1"
+  },
+  "movieName": "Drishyam 3",
+  "theaterName": "Rajhansh",
+  "screenNumber": 1,
+  "showDate": "2026-03-15",
+  "showTime": "10:00 PM",
+  "ticketPrice": 350,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b55dad50cbe00018801ea4"
+  },
+  "movieName": "Bhoot Bangla",
+  "theaterName": "Rajhansh",
+  "screenNumber": 1,
+  "showDate": "2026-03-18",
+  "showTime": "10:00 PM",
+  "ticketPrice": 300,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b6223a50cbe00018801ee0"
+  },
+  "movieName": "The Good Dinosaur",
+  "theaterName": "Laxmi Cine Magic",
+  "screenNumber": 2,
+  "showDate": "2026-03-17",
+  "showTime": "4:00 PM",
+  "ticketPrice": 300,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69dc674b8e91ae3903d6cd48"
+  },
+  "movieName": "Drishyam 3",
+  "theaterName": "Laxmi Cine Magic",
+  "screenNumber": 2,
+  "showDate": "2026-04-15",
+  "showTime": "10:00 PM",
+  "ticketPrice": 250,
+  "__v": 0
+}]

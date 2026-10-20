@@ -1,0 +1,75 @@
+[{
+  "_id": {
+    "$oid": "69ae40c06fcf831612c82019"
+  },
+  "movieId": "4",
+  "title": "Mahavtar",
+  "description": "Drama",
+  "duration": "2h 15m",
+  "genre": "Drama",
+  "language": "Hindi",
+  "releaseDate": "2026-03-21",
+  "status": "Now Showing",
+  "image": "1773027520424-mahavtar.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b38914f03b090a6a8bfb3c"
+  },
+  "movieId": "5",
+  "title": "King",
+  "description": "King follows a powerful and mysterious man who enters the criminal underworld to protect his loved ones and take revenge against his enemies.",
+  "duration": "2h 15m",
+  "genre": "Action",
+  "language": "Hindi",
+  "releaseDate": "2026-03-19",
+  "status": "Now Showing",
+  "image": "1773373716108-1773372834136-king.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b55b2050cbe00018801e8e"
+  },
+  "movieId": "6",
+  "title": "Drishyam 3",
+  "description": "continues Georgekutty’s fight to protect his family as hidden secrets and new investigations threaten to expose the truth.",
+  "duration": "2h 40m",
+  "genre": "Action",
+  "language": "Hindi",
+  "releaseDate": "2026-03-15",
+  "status": "Now Showing",
+  "image": "1773493024597-drishyam3.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b55bd050cbe00018801e91"
+  },
+  "movieId": "7",
+  "title": "Bhoot Bangla",
+  "description": "Bhoot Bangla is a horror-comedy about a man who enters a haunted mansion and faces funny yet frightening supernatural events.",
+  "duration": "2h 35m",
+  "genre": "Horror",
+  "language": "Hindi",
+  "releaseDate": "2026-03-18",
+  "status": "Now Showing",
+  "image": "1773493200987-bhootbangla.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b61f0d50cbe00018801ecf"
+  },
+  "movieId": "8",
+  "title": "The Good Dinosaur",
+  "description": "A friendly Neanderthal boy helps a young dinosaur make his way home to his beloved family.",
+  "duration": "1h 33m",
+  "genre": "Animation",
+  "language": "English",
+  "releaseDate": "2026-03-17",
+  "status": "Now Showing",
+  "image": "1773543879563-tgd.png",
+  "__v": 0
+}]

@@ -1,0 +1,68 @@
+<app-user-header></app-user-header>
+
+<div class="page-container">
+
+  <h2 class="page-title">MY PROFILE</h2>
+
+  <div class="profile-card">
+
+    <!-- Avatar -->
+    <div class="profile-avatar">{{ getInitial() }}</div>
+
+    <!-- View Mode -->
+    <div *ngIf="!isEditing">
+      <div class="profile-info">
+        <div class="info-row">
+          <span class="label">👤 Name</span>
+          <span class="value">{{ user.name }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">📧 Email</span>
+          <span class="value">{{ user.email }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">📱 Phone</span>
+          <span class="value">{{ user.phone || 'Not set' }}</span>
+        </div>
+      </div>
+
+      <button class="btn-edit" (click)="isEditing = true">✏ Edit Profile</button>
+    </div>
+
+    <!-- Edit Mode -->
+    <div *ngIf="isEditing" class="edit-form">
+      <h3>Edit Profile</h3>
+
+      <label>Full Name</label>
+      <input type="text" [(ngModel)]="user.name" placeholder="Enter your name">
+
+      <label>Email</label>
+      <input type="email" [(ngModel)]="user.email" placeholder="Enter your email">
+
+      <label>Phone</label>
+      <input type="text" [(ngModel)]="user.phone" placeholder="Enter your phone number">
+
+      <label>New Password <span class="optional">(leave blank to keep current)</span></label>
+      <input type="password" [(ngModel)]="newPassword" placeholder="Enter new password">
+
+      <div class="edit-actions">
+        <button class="btn-save" (click)="saveProfile()">✅ Save Changes</button>
+        <button class="btn-cancel" (click)="cancelEdit()">✖ Cancel</button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row" *ngIf="!isEditing">
+      <div class="stat">
+        <span class="stat-number">{{ totalBookings }}</span>
+        <span class="stat-label">Bookings</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">₹{{ totalSpent }}</span>
+        <span class="stat-label">Total Spent</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
